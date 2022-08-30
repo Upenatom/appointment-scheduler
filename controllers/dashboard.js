@@ -1,11 +1,17 @@
 const Customer = require("../models/customer");
 const Car = require("../models/car");
-module.exports = { index, createUser, new: newCar, create };
+module.exports = { index, createUser, new: newCar, create, show };
+
+function show(req, res) {
+  console.log("reqparams =", req.params.carId);
+  Car.findById(req.params.carId, function (err, car) {
+    res.render("cars/show", { car });
+  });
+}
 
 function index(req, res, next) {
   Car.find({ customer: req.user.id }, function (err, car) {
     Customer.findById(req.user.id, function (err, customer) {
-      console.log(car);
       res.render("dashboard", { customer, car });
     });
   });
@@ -16,8 +22,6 @@ function index(req, res, next) {
 
 function createUser(req, res) {
   Customer.findOne({ email: req.user.email }, function (err, customer) {
-    console.log(req.body);
-    console.log("customer before:", customer);
     customer.firstName = req.body.firstName;
     customer.lastName = req.body.lastName;
     customer.phone = req.body.phone;
@@ -39,7 +43,6 @@ function newCar(req, res) {
 function create(req, res) {
   req.body.appointment = [];
   req.body.customer = req.user.id;
-  console.log(req.body);
   const car = new Car(req.body);
   car.save(function (err) {
     res.redirect("/dashboard");

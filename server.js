@@ -16,7 +16,8 @@ require("./config/passport");
 
 var indexRouter = require("./routes/index");
 var dashboardRouter = require("./routes/dashboard/index");
-var carsRouter = require("./routes/car/cars");
+var appointmentRouter = require("./routes/appointments/appointments");
+// var carsRouter = require("./routes/car/cars");
 
 var app = express();
 
@@ -39,6 +40,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use("/", indexRouter);
+app.use("/", appointmentRouter);
 app.use("/dashboard", dashboardRouter);
 // app.use("/dashboard/:carId", carsRouter);
 

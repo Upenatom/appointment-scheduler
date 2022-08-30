@@ -5,7 +5,7 @@ const appointmentSchema = new Schema({
   date: Date,
   time: String,
   carSymptom: String,
-  ownerComment: String,
+  ownerComment: { type: String, default: "" },
 });
 
 const carSchema = new Schema({
