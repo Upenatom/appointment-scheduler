@@ -6,8 +6,17 @@
     <%}else{%>
         <ul type="none">
             <%car.appointment.forEach(function(a,i){%>
-                <li><p> <%=a.date.toString().slice(0,15)%></p>  <p>Time:<%=a.time %></p>
-                    <p>Problem:<%=a.carSymptom%></p></li>
+                <li>
+                    <p><%=a.date.toString().slice(0,15)%></p>
+                    <p>Time:<%=a.time %></p>
+                    <p>Problem:<%=a.carSymptom%></p>
+                </li>
+                <form method="GET" action="/dashboard/<%=car.id%>/appointments/<%=a.id%>?_method=DELETE">
+                    <button type="submit">Delete</button>
+                </form>
+                <form method="GET" action="/dashboard/<%=car.id%>/appointments/<%=a.id%>/update">
+                    <button type="submit">Edit</button>
+                </form>
                     <%  }) %>
                     <%} %> </ul>
 <%- include('../partials/footer') %>

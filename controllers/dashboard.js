@@ -1,6 +1,6 @@
 const Customer = require("../models/customer");
 const Car = require("../models/car");
-module.exports = { index, createUser, new: newCar, create, show };
+module.exports = { index, updateUser, new: newCar, create, show };
 
 function show(req, res) {
   console.log("reqparams =", req.params.carId);
@@ -20,13 +20,12 @@ function index(req, res, next) {
   //   });
 }
 
-function createUser(req, res) {
+function updateUser(req, res) {
   Customer.findOne({ email: req.user.email }, function (err, customer) {
     customer.firstName = req.body.firstName;
     customer.lastName = req.body.lastName;
     customer.phone = req.body.phone;
     customer.save(function (err) {
-      req.body.appointment = [];
       req.body.customer = req.user.id;
       const car = new Car(req.body);
       car.save(function (err) {

@@ -6,7 +6,7 @@ var dashboardCtrl = require("../../controllers/dashboard");
 router.get("/", dashboardCtrl.index);
 router.get("/new/", dashboardCtrl.new);
 router.get("/:carId/", dashboardCtrl.show);
-router.post("/newcustomer/", dashboardCtrl.createUser);
+router.put("/newcustomer/", dashboardCtrl.updateUser);
 router.post("/", dashboardCtrl.create);
 
 module.exports = router;

@@ -1,6 +1,15 @@
 const Customer = require("../models/customer");
 const Car = require("../models/car");
-module.exports = { new: newAppointment, create };
+module.exports = { new: newAppointment, create, delete: deleteAppointment };
+
+function deleteAppointment(req, res) {
+  Car.findById(req.params.carId, function (err, car) {
+    car.appointment.id(req.params.appointmentId).remove();
+    car.save(function (err) {
+      res.redirect(`/dashboard/${car.id}`);
+    });
+  });
+}
 
 function newAppointment(req, res) {
   Car.findById(req.params.carId, function (err, car) {

@@ -3,7 +3,7 @@
 <%if(!customer.firstName){%>
     <h2>Profile Setup</h2>
     <p>Please fill out the form to set up your account:</p>
-    <form action="/dashboard/newcustomer" method="POST" autocomplete="'off">
+    <form action="/dashboard/newcustomer?_method=PUT" method="POST" autocomplete="'off">
     <p>E-mail:</p>
     <p><%=customer.email%></p>
     <p>Fist Name:</p>
