@@ -1,5 +1,40 @@
 <%- include('partials/header') %>
 <a href="/logout">Logout</a>
 <h1>Dashboard</h1>
-<p>hello <%=customer.email%></p>
+<%if(!customer.firstName){%>
+    <h2>Profile Setup</h2>
+    <p>Please fill out the form to set up your account:</p>
+    <form action="/dashboard/newcustomer" method="POST" autocomplete="'off">
+    <p>E-mail:</p>
+    <p><%=customer.email%></p>
+    <p>Fist Name:</p>
+    <input type="text" name="firstName">
+    <p>Last Name:</p>
+    <input type="text" name="lastName">
+    <p>Phone #:</p>
+    <input type="text" name="phone" >
+    <p>Make:</p>
+    <input type="text" name="make">
+    <p>Model:</p>
+    <input type="text" name="model">
+    <p>Year:</p>
+    <input type="text" name="year">
+    <button type="submit">Submit</button>
+   </form>
+    <% } else{%> 
+        <h2> Welcome <%= customer.firstName%> </h2>
+        <h3>Vehicles:</h3>
+        <p>Select a Vehicle to view current appointments or book an appointment</p>
+        <ul type="none">
+        <% car.forEach(function(c){%>
+        <li><a href="/dashboard/<%=c.id%>"><%= c.make %> <%= c.model %> <%=c.year %></a></li> 
+        <%})%>
+        </ul>
+        <form action="/dashboard/new/">
+            <input type="submit" value="Add A New Vehicle:">
+        </form>
+        
+
+
+    <% } %> 
 <%- include('partials/footer') %>

@@ -17,7 +17,6 @@ passport.use(
         } else {
           // we have a new customer via OAuth!
           var newCustomer = new Customer({
-            name: profile.displayName,
             email: profile.emails[0].value,
             googleId: profile.id,
           });

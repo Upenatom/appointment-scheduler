@@ -4,5 +4,8 @@ var dashboardCtrl = require("../../controllers/dashboard");
 
 /* GET users listing. */
 router.get("/", dashboardCtrl.index);
+router.get("/new/", dashboardCtrl.new);
+router.post("/newcustomer/", dashboardCtrl.createUser);
+router.post("/", dashboardCtrl.create);
 
 module.exports = router;

@@ -6,7 +6,7 @@ const customerSchema = new Schema({
   lastName: String,
   phone: String,
   email: String,
-  isADmin: Boolean,
+  isAdmin: Boolean,
   googleId: String,
 });
 
