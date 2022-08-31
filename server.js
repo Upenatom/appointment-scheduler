@@ -18,6 +18,7 @@ require("./config/passport");
 var indexRouter = require("./routes/index");
 var carsRouter = require("./routes/cars/index");
 var appointmentRouter = require("./routes/appointments/appointments");
+var adminRouter = require("./routes/admin/admin");
 
 var app = express();
 
@@ -44,6 +45,7 @@ app.use(passport.session());
 app.use("/", indexRouter);
 app.use("/", appointmentRouter);
 app.use("/cars", carsRouter);
+app.use("/", adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

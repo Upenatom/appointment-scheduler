@@ -21,8 +21,12 @@
     <button type="submit">Submit</button>
    </form>
     <% } else{%> 
+        <%if (customer.isAdmin){%>
+            <a href="/admin">ADMIN</a>
+        <%}%>
         <h2> Welcome <%= customer.firstName%> </h2>
-        <h3>Vehicles:</h3>
+     
+             <h3>Vehicles:</h3>
         <p>Select a Vehicle to view current appointments or book an appointment</p>
         <ul type="none">
         <% car.forEach(function(c){%>

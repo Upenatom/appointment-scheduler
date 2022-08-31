@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+<h1>admin page</h1>
+<%car.forEach(c){%>
+<%c.appointment.forEach(app){%>
+<p><%=app.date%> <%=app.time%> <%=app.carSymptom%></p> 
+<%}}%>
+
+<%- include('../partials/footer') %>
