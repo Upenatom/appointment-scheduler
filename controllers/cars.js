@@ -1,9 +1,25 @@
 const Customer = require("../models/customer");
 const Car = require("../models/car");
-module.exports = { index, updateUser, new: newCar, create, show };
+module.exports = { index, updateUser, new: newCar, create, show, edit, update };
+
+function update(req, res) {
+  Car.findById(req.params.carId, function (err, car) {
+    car.model = req.body.model;
+    car.make = req.body.make;
+    car.year = req.body.year;
+    car.save(function (err) {
+      res.redirect("/cars");
+    });
+  });
+}
+
+function edit(req, res) {
+  Car.findById(req.params.carId, function (err, car) {
+    res.render("cars/edit", { car });
+  });
+}
 
 function show(req, res) {
-  console.log("reqparams =", req.params.carId);
   Car.findById(req.params.carId, function (err, car) {
     res.render("cars/show", { car });
   });
@@ -12,12 +28,9 @@ function show(req, res) {
 function index(req, res, next) {
   Car.find({ customer: req.user.id }, function (err, car) {
     Customer.findById(req.user.id, function (err, customer) {
-      res.render("dashboard", { customer, car });
+      res.render("cars/index", { customer, car });
     });
   });
-  //   Customer.findOne({ email: req.user.email }, function (err, customer) {
-  //     console.log("customer:", customer);
-  //   });
 }
 
 function updateUser(req, res) {
@@ -29,7 +42,7 @@ function updateUser(req, res) {
       req.body.customer = req.user.id;
       const car = new Car(req.body);
       car.save(function (err) {
-        res.redirect("/dashboard");
+        res.redirect("/cars");
       });
     });
   });
@@ -44,6 +57,6 @@ function create(req, res) {
   req.body.customer = req.user.id;
   const car = new Car(req.body);
   car.save(function (err) {
-    res.redirect("/dashboard");
+    res.redirect("/cars");
   });
 }

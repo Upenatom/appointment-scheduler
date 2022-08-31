@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 <h1>New Appointment for your <%=car.make%> <%= car.model %> <%= car.year %>  </h1>
-<form action="/dashboard/<%=car.id%>/" method="POST">
+<form action="/cars/<%=car.id%>/" method="POST">
     <p>Select a Date:</p>
     <%let today = new Date().toJSON().slice(0, 10);%>
     <input type="date" name="date" value="<%=today%>" min="<%=today%>" required >

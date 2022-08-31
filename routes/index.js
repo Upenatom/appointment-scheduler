@@ -16,7 +16,7 @@ router.get(
 router.get(
   "/oauth2callback",
   passport.authenticate("google", {
-    successRedirect: "/dashboard", //redirect to customer dashboard
+    successRedirect: "/cars", //redirect to customer dashboard
     failureRedirect: "/", //redirect to home page
   })
 );
