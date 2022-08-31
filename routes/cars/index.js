@@ -10,5 +10,6 @@ router.get("/:carId/edit/", carsCtrl.edit);
 router.put("/newcustomer/", carsCtrl.updateUser);
 router.put("/:carId", carsCtrl.update);
 router.post("/", carsCtrl.create);
+router.delete("/:carId", carsCtrl.delete);
 
 module.exports = router;

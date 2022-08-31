@@ -30,8 +30,12 @@
         <p>Select a Vehicle to view current appointments or book an appointment</p>
         <ul type="none">
         <% car.forEach(function(c){%>
-        <li><form method="GET" action="/cars/<%=c.id%>"?_method="DELETE"><button>X</button></form>
-            <form action="/cars/<%=c.id%>/edit" method="GET"><button>...</button></form>
+
+        <li>
+            <form method="POST" action="/cars/<%=c.id%>?_method=DELETE"><button type="submit" >X</button></form>
+            
+            <form action="/cars/<%=c.id%>/edit" method="GET"><button type="submit" >...</button></form>
+           
             <a href="/cars/<%=c.id%>"><%= c.make %> <%= c.model %> <%=c.year %></a>
         </li> 
         <%})%>

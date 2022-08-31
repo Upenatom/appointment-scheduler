@@ -5,6 +5,10 @@
 <p><%=app.date%> <%=app.time%> <%=app.carSymptom%></p> 
 <p><%=c.make%> <%=c.model%> <%=c.year%></p>
 <p><%=c.customer.firstName%> <%=c.customer.phone%> <%=c.customer.email%></p>
+<p><%=app.ownerComment%></p>
+<form method=GET action="admin/<%=c.id%>/<%=app.id%>">
+<button>View/edit Appointment</button>
+</form>
 <%})})%>
 
 <%- include('../partials/footer') %>

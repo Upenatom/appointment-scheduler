@@ -11,7 +11,7 @@
                     <p>Time:<%=a.time %></p>
                     <p>Problem:<%=a.carSymptom%></p>
                 </li>
-                <form method="GET" action="/cars/<%=car.id%>/appointments/<%=a.id%>?_method=DELETE">
+                <form method="POST" action="/cars/<%=car.id%>/appointments/<%=a.id%>?_method=DELETE">
                     <button type="submit">Delete</button>
                 </form>
                 <%  }) %>
