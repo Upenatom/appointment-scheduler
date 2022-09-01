@@ -54,18 +54,13 @@ nav{
   flex-shrink: 0;
   
 }
-/* h1, h2, h3, h4, h5, h6{
-  line-height: 0.5;
- } */
 
 small{
   display:flex;
   flex-direction: row;
   align-items:center;
 }
-.material-icons{
-  font-size:15px
-}
+
 .login{
   display:flex;
   flex-direction: row;
@@ -73,6 +68,7 @@ small{
   }
 a:hover{
   background-color: aqua;
+  border-radius:15px;
 }
 li{
   display:flex;
@@ -86,8 +82,9 @@ button{
   background-color:rgb(68, 68, 213);
   color:#8ed3ef
 }
-.trash{
+i.trash{
   color:rgb(181, 10, 10);
+  font-size:20px;
 }
 .add{
   color:rgb(7, 193, 7)
