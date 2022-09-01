@@ -27,8 +27,9 @@ Sadies Mayday Repair app was developed using:
 - Javascript
 - HTML
 - CSS
-- express.js
 - Mongo
+- Express.js
+- Node.js
 - Mongoose
 - Atlas Database
 - Heroku
