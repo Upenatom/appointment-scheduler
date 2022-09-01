@@ -1,7 +1,9 @@
 <%- include('../partials/header') %>
 <h1>admin page</h1>
+<ul type="none">
 <%car.forEach(function(c){%>
     <%c.appointment.forEach(function(app){%>
+        <li class="apptlist">
         <p><%=app.date%> <%=app.time%> <%=app.carSymptom%></p> 
         <p><%=c.make%> <%=c.model%> <%=c.year%></p>
         <p><%=c.customer.firstName%> <%=c.customer.phone%> <%=c.customer.email%></p>
@@ -9,6 +11,7 @@
         <form method="GET" action="admin/<%=c.id%>/<%=app.id%>/edit">
         <button>View/edit Appointment</button>
     </form>
+</li>
 <%})})%>
-
+</ul>
 <%- include('../partials/footer') %>

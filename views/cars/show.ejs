@@ -1,19 +1,19 @@
 <%- include('../partials/header') %>
-<h1>Upcoming Apponmtments for your <%= car.make %> <%= car.model %> <%= car.year %>   </h1>
+<h2><%= car.make %> <%= car.model %> <%= car.year %> Appoinmtments</h2>
 <a href="/cars/<%=car.id%>/appointments/new">Book an appointment</a>
 <% if(car.appointment.length===0){%>
     <p> You have no upcoming appointments</p>
     <%}else{%>
         <ul type="none">
             <%car.appointment.forEach(function(a,i){%>
-                <li>
-                    <p><%=a.date.toString().slice(0,15)%></p>
-                    <p>Time:<%=a.time %></p>
-                    <p>Problem:<%=a.carSymptom%></p>
+                <li class="apptlist">
+                    <p class="apptlist"><%=a.date.toString().slice(0,15)%></p>
+                    <p class="apptlist">Time:<%=a.time %></p>
+                    <small class="apptlist">Problem:<%=a.carSymptom%></small>
+                    <form method="POST" action="/cars/<%=car.id%>/appointments/<%=a.id%>?_method=DELETE">
+                        <button type="submit">Delete</button>
+                    </form>
                 </li>
-                <form method="POST" action="/cars/<%=car.id%>/appointments/<%=a.id%>?_method=DELETE">
-                    <button type="submit">Delete</button>
-                </form>
                 <%  }) %>
                     <%} %> </ul>
 <%- include('../partials/footer') %>

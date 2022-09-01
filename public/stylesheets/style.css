@@ -20,10 +20,8 @@ a {
   background-image: url(../images/sadiecart.png);
   background-repeat: no-repeat;
   background-size: contain;
-  /* border-radius:50px; */
   height:100px;
   width:100px;
-  /* border:10px solid rgb(228, 231, 98); */
 }
 
 .maintitle{

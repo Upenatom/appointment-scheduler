@@ -2,12 +2,117 @@
 body {
   display:flex;
   flex-direction:column;
-  align-items:center;
+  align-items:flex-start;
   height:100vh;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width:100vw;
+  font-family: 'Viga', sans-serif;
+  font-size: 40px ;
   background-color: white;
   background: linear-gradient(to bottom, #0C374d, #0C374D, #0D3D56, #3C6478, #107896 );
-  background-size: 100%;
-	background-repeat: no-repeat;
-  color: rgb(209, 202, 202);
+	background-repeat:repeat;
+  color: rgb(193, 195, 238);
+  }
+
+a {
+  color: #00B7FF;
+  text-decoration: none;
+  display:flex;
+  flex-direction:row
+}
+.maintitle{
+  display: flex;
+  flex-direction:row;
+  font-family: 'Viga', sans-serif;
+  font-style: italic;
+  font-size:100px;
+}
+nav{
+  display:flex;
+  flex-direction:row;
+  background-color: #0C374d;
+  width:100vw;
+  height:50px;
+  /* padding:5px; */
+  border-bottom:1px solid black;
+  justify-content: space-around;
+  align-items:center;
+  font-size:40px;
+}
+
+.footer{
+  display:flex;
+  flex-direction: column;
+  position: fixed;
+  align-items:center;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  background-color: #107896;
+  font-size: 40px;
+  
+}
+/* h1, h2, h3, h4, h5, h6{
+  line-height: 0.5;
+ } */
+
+small{
+  display:flex;
+  flex-direction: row;
+  align-items:center;
+}
+.material-icons{
+  font-size:15px
+}
+.login{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  }
+a:hover{
+  background-color: aqua;
+}
+li{
+  display:flex;
+  flex-direction:row;
+  column-gap: 5px;
+  
+
+}
+button{
+  font-size:40px
+}
+a.admin{
+ border: 1px solid black;
+ padding: 10px;
+ background-color: rgb(130, 9, 9);
+ border-radius:30px;
+ filter:drop-shadow((0 0 100px #333));
+}
+li.apptlist{
+  display:flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding:20px;
+  background: linear-gradient(to bottom, #00B7FF,#8ed3ef );
+  color:#333;
+  border-radius:40px;
+  width:100vw;
+  }
+p.apptlist{
+  margin:30px;
+  line-height: 0.1;
+  
+}
+input.makelarge{
+  font-size: 50px;
+  margin:20px;
+}
+
+textarea.comment{
+  font-size:50px;
+ margin:20px;
+}
+.apptlist{
+  margin:30px;
+  
 }

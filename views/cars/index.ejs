@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<h1>Your Vehicles</h1>
+<h1 class="maintitle">Your Vehicles</h1>
 <%if(!customer.firstName){%>
     <h2>Profile Setup</h2>
     <p>Please fill out the form to set up your account:</p>
@@ -22,29 +22,29 @@
    </form>
     <% } else{%> 
         <%if (customer.isAdmin){%>
-            <a href="/admin">ADMIN</a>
+            <a class="admin" href="/admin">ADMIN</a>
         <%}%>
         <h2> Welcome <%= customer.firstName%> </h2>
-     
-             <h3>Vehicles:</h3>
-        <p>Select a Vehicle to view current appointments or book an appointment</p>
+
+       <div><p>Click a Vehicle Name to view/book appointments</p></div>
         <ul type="none">
         <% car.forEach(function(c){%>
 
+
         <li>
-            <form method="POST" action="/cars/<%=c.id%>?_method=DELETE"><button type="submit" >X</button></form>
-            
-            <form action="/cars/<%=c.id%>/edit" method="GET"><button type="submit" >...</button></form>
-           
+            <form method="POST" action="/cars/<%=c.id%>?_method=DELETE"><button type="submit" ><i class="material-icons">delete_forever</i></button></form>
+
             <a href="/cars/<%=c.id%>"><%= c.make %> <%= c.model %> <%=c.year %></a>
+            
+            <form action="/cars/<%=c.id%>/edit" method="GET"><button type="submit" ><i class="material-icons">build</i></button></form>
+           
         </li> 
         <%})%>
         </ul>
         <form action="/cars/new/">
-            <input type="submit" value="Add A New Vehicle:">
+            <button type="submit"> <i class="material-icons">add</i>
+            Add a new Vehicle</button>
         </form>
+        <% } %>
         
-
-
-    <% } %> 
 <%- include('../partials/footer') %>
