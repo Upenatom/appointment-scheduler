@@ -34,7 +34,14 @@ function newAppointment(req, res) {
 
 function create(req, res) {
   console.log("create app router");
+  console.log("req.body.date=", req.body.date);
+  console.log(typeof req.body.date);
   Car.findById(req.params.carId, function (err, car) {
+    let date = new Date(req.body.date);
+    let actualdate = date;
+    date = date.getDate() + 1;
+    actualdate.setDate(date);
+    req.body.date = actualdate;
     car.appointment.push(req.body);
     car.save(function (err) {
       res.redirect(`/cars/${car.id}`);

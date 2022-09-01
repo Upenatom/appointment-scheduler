@@ -34,10 +34,15 @@ function update(req, res) {
   console.log("hitting update router");
   Customer.findById(req.user.id, function (err, admin) {
     if (admin.isAdmin) {
+      let date = new Date(req.body.date);
+      let actualdate = date;
+      date = date.getDate() + 1;
+      actualdate.setDate(date);
+      req.body.date = actualdate;
       Car.findById(req.params.carId, function (err, car) {
         const appointment = car.appointment.id(req.params.appointmentId);
         appointment.date = req.body.date;
-        appointment.time = req.body.appointment;
+        appointment.time = req.body.time;
         appointment.carSymptom = req.body.carSymptom;
         appointment.ownerComment = req.body.ownerComment;
         car.save(function (err) {

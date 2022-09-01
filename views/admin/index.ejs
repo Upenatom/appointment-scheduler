@@ -5,13 +5,13 @@
 <%car.forEach(function(c){%>
     <%c.appointment.forEach(function(app){%>
         <li class="apptlist">
-        <p>Date: <%=app.date%> <br>Time: <%=app.time%> <br> Customer Comments: <br><%=app.carSymptom%></p> 
+        <p>Date: <%=app.date.toDateString()%> <br>Time: <%=app.time%> <br> Customer Comments: <br><%=app.carSymptom%></p> 
         <p>Vehicle:<%=c.make%> <%=c.model%> <%=c.year%></p>
-        <p>Customer Contact: <br>
-            Name: <%=c.customer.firstName%> <br>
+        <p> <div class="underline"> Customer Contact:</div> <br>
+            Name: <%=c.customer.firstName%> <%=c.customer.lastName%><br>
             Phone:<%=c.customer.phone%> <br>
              Email:<%=c.customer.email%></p>
-        <p><%=app.ownerComment%></p>
+        <p>Mechanic comments: <%=app.ownerComment%></p>
         <form method="GET" action="admin/<%=c.id%>/edit/<%=app.id%>">
         <button>View/edit Appointment</button>
     </form>

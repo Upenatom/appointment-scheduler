@@ -9,7 +9,7 @@
         <ul type="none">
             <%car.appointment.forEach(function(a,i){%>
                 <li class="apptlist">
-                    <p class="apptlist"><%=a.date.toString().slice(0,15)%></p>
+                    <p class="apptlist"><%=a.date.toDateString()%></p>
                     <p class="apptlist">Time:<%=a.time %></p>
                     <small class="apptlist">Problem:<%=a.carSymptom%></small>
                     <form method="POST" action="/cars/<%=car.id%>/appointments/<%=a.id%>?_method=DELETE">

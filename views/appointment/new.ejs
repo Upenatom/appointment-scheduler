@@ -2,7 +2,9 @@
 <h2>Book Appointment for <%=car.make%> <%= car.model %> <%= car.year %>  </h2>
 <form action="/cars/<%=car.id%>/" method="POST">
     <p class="apptlist">Select a Date:</p>
-    <%let today = new Date().toJSON().slice(0, 10);%>
+    <%let date = new Date();%>
+    <% let today= new Date()%> 
+    <% today.setDate(date.getDate()+1) %> 
     <input class="makelarge" type="date" name="date" value="<%=today%>" min="<%=today%>" required >
     <p class="apptlist">Select a Time</p>
     <small>We are open from 9am to 5pm</small><br>
