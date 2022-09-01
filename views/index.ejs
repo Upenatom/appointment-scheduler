@@ -4,13 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <title>Document</title>
 </head>
-<nav><a href="/auth/google">Login</a></nav>
+<nav>
+    <a href="/auth/google"><div class="login"><i class="tiny material-icons">vpn_key</i> <small> Login with Google</small></div></a>
+</nav>
 <body>
-    
-    <h1><%= title %></h1>
+    <div class="maintitle"><h1>Sadie's</h1></div>
+    <div class="maintitle"><h1>Mayday Repair</h1></div>
+    <div id='sadiepic'></div>
     <p>Welcome to <%= title %></p>
+    
+    <div class="middle">
+       <div class="topics"><i class="material-icons">build</i><p>Service</p></div>
+       <div class="topics"><i class="material-icons">build</i><p>Quality</p></div>
+        <div class="topics"><i class="material-icons">build</i><p>Reliability</p></div>
+    </div>
+
+    <div class=footer>
+        <small><i class="tiny material-icons">phone</i>204-435-4325</small>
+        <small><i class="tiny material-icons">mail</i>sadiemayday@gmail.com</small>
+        <small><i class="tiny material-icons">location_on</i>1234 Down St. StAdolphe Manitoba R34 2L5</small>
+    </div>
 </body>
 </html>
 

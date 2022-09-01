@@ -1,14 +1,17 @@
 const Customer = require("../models/customer");
 const Car = require("../models/car");
-module.exports = { index, edit };
+module.exports = { index, edit, update };
 
 function edit(req, res) {
   console.log("hitting edit router");
   Customer.findById(req.user.id, function (err, admin) {
     if (admin.isAdmin) {
-      res.send("ok");
+      Car.findById(req.params.carId, function (err, car) {
+        const appointment = car.appointment.id(req.params.appointmentId);
+        res.render("admin/edit", { car, appointment });
+      });
     } else {
-      res.redirect("/");
+      res.redirect("../");
     }
   });
 }
@@ -22,7 +25,29 @@ function index(req, res) {
           res.render("admin/index", { car });
         });
     } else {
-      res.redirect("/");
+      res.redirect("../");
+    }
+  });
+}
+
+function update(req, res) {
+  Customer.findById(req.user.id, function (err, admin) {
+    if (admin.isAdmin) {
+      console.log(req.body);
+      console.log(req.params.appointmentId);
+      console.log(req.params.carId);
+      Car.findById(req.params.carId, function (err, car) {
+        const appointment = car.appointment.id(req.params.appointmentId);
+        appointment.date = req.body.date;
+        appointment.time = req.body.appointment;
+        appointment.carSymptom = req.body.carSymptom;
+        appointment.ownerComment = req.body.ownerComment;
+        appointment.save(function (err) {
+          res.redirect("/");
+        });
+      });
+    } else {
+      res.redirect("../");
     }
   });
 }

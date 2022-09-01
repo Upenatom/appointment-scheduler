@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+<h1>Appointment for <%=car.make%> <%= car.model %> <%= car.year %>  </h1>
+<form method="POST" action="/admin?_method=PUT">
+    <p>Date:</p>
+    <input type="date" name="date" value="<%=appointment.date%>" min="" required >
+    <p>Select a Time</p>
+    <small>We are open from 9am to 5pm</small><br>
+    <input type="time" name="time" min="09:00" max="17:00" step="3600" required value="<%=appointment.time%>">
+    <p>Please briefly describe the problem with your vehicle:</p>
+    <input type="text" name="carSymptom" size="50" value="<%=appointment.carSymptom%>"><br>
+    <p>Mechanics Comments:</p>
+    <input type="text"name="ownerComment" size="50" value="<%=appointment.ownerComment%>"><br>>
+    <button type="submit">Update</button>
+</form>
+<%- include('../partials/footer') %>

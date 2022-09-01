@@ -1,8 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
 body {
-  padding: 50px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  height:100vh;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: white;
+  background: linear-gradient(to bottom, #0C374d, #0C374D, #0D3D56, #3C6478, #107896 );
+  background-size: 100%;
+	background-repeat: no-repeat;
+  color: rgb(209, 202, 202);
 }
 
 a {
   color: #00B7FF;
+  text-decoration: none;
+}
+#sadiepic{
+  background-image: url(../images/sadiecart.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  /* border-radius:50px; */
+  height:100px;
+  width:100px;
+  /* border:10px solid rgb(228, 231, 98); */
+}
+
+.maintitle{
+  display: flex;
+  flex-direction:row;
+  font-family: 'Viga', sans-serif;
+  font-style: italic;
+}
+nav{
+  display:flex;
+  flex-direction:row;
+  background-color: #0C374d;
+  border-bottom:1px solid black;
+  width:100vw;
+  height:30px;
+  padding:5px;
+  justify-content: flex-end;
+}
+
+.footer{
+  display:flex;
+  flex-direction: column;
+  position: fixed;
+  align-items:center;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #107896;
+  font-size: 15px;
+  height:50px;
+}
+h1, h2, h3, h4, h5, h6{
+  line-height: 0.5;
+ }
+
+small{
+  display:flex;
+  flex-direction: row;
+  align-items:center;
+}
+
+.material-icons{
+  font-size:15px
+}
+.topics{
+  display:flex;
+  flex-direction: row;
+  align-items:center;
+}
+
+#login{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+a:hover{
+  background-color: aqua;
 }
