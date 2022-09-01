@@ -1,9 +1,11 @@
 <%- include('../partials/header') %>
-<h2><%= car.make %> <%= car.model %> <%= car.year %> Appoinmtments</h2>
+<br>
+<h2>Appoinmtments for <%= car.make %> <%= car.model %> <%= car.year %> </h2>
 <a href="/cars/<%=car.id%>/appointments/new">Book an appointment</a>
 <% if(car.appointment.length===0){%>
-    <p> You have no upcoming appointments</p>
+    <p> **You have no appointments**</p>
     <%}else{%>
+        <div class="content">
         <ul type="none">
             <%car.appointment.forEach(function(a,i){%>
                 <li class="apptlist">
@@ -11,9 +13,10 @@
                     <p class="apptlist">Time:<%=a.time %></p>
                     <small class="apptlist">Problem:<%=a.carSymptom%></small>
                     <form method="POST" action="/cars/<%=car.id%>/appointments/<%=a.id%>?_method=DELETE">
-                        <button type="submit">Delete</button>
+                        <button type="submit">Cancel</button>
                     </form>
                 </li>
                 <%  }) %>
-                    <%} %> </ul>
+                <%} %> </ul>
+            </div>
 <%- include('../partials/footer') %>

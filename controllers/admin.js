@@ -1,6 +1,6 @@
 const Customer = require("../models/customer");
 const Car = require("../models/car");
-module.exports = { index, edit, update };
+module.exports = { index, edit, update, delete: deleteAppt };
 
 function edit(req, res) {
   console.log("hitting edit router");
@@ -31,19 +31,17 @@ function index(req, res) {
 }
 
 function update(req, res) {
+  console.log("hitting update router");
   Customer.findById(req.user.id, function (err, admin) {
     if (admin.isAdmin) {
-      console.log(req.body);
-      console.log(req.params.appointmentId);
-      console.log(req.params.carId);
       Car.findById(req.params.carId, function (err, car) {
         const appointment = car.appointment.id(req.params.appointmentId);
         appointment.date = req.body.date;
         appointment.time = req.body.appointment;
         appointment.carSymptom = req.body.carSymptom;
         appointment.ownerComment = req.body.ownerComment;
-        appointment.save(function (err) {
-          res.redirect("/");
+        car.save(function (err) {
+          res.redirect("/admin");
         });
       });
     } else {
@@ -51,3 +49,4 @@ function update(req, res) {
     }
   });
 }
+function deleteAppt(req, res) {}

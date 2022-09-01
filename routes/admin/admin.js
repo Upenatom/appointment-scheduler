@@ -3,7 +3,7 @@ var router = express.Router();
 var adminCtrl = require("../../controllers/admin");
 
 router.get("/", adminCtrl.index);
-router.get("/:carId/:appointmentId/edit", adminCtrl.edit);
-router.put("/", adminCtrl.update);
-
+router.get("/:carId/edit/:appointmentId", adminCtrl.edit);
+router.put("/:carId/edit/:appointmentId/update", adminCtrl.update);
+router.delete("/:carId/edit/:appointmentId/delete", adminCtrl.delete);
 module.exports = router;

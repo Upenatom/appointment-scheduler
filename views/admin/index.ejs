@@ -1,17 +1,25 @@
 <%- include('../partials/header') %>
 <h2>All Appointments</h2>
+<div class="content">
 <ul type="none">
 <%car.forEach(function(c){%>
     <%c.appointment.forEach(function(app){%>
         <li class="apptlist">
-        <p><%=app.date%> <%=app.time%> <%=app.carSymptom%></p> 
-        <p><%=c.make%> <%=c.model%> <%=c.year%></p>
-        <p><%=c.customer.firstName%> <%=c.customer.phone%> <%=c.customer.email%></p>
+        <p>Date: <%=app.date%> <br>Time: <%=app.time%> <br> Customer Comments: <br><%=app.carSymptom%></p> 
+        <p>Vehicle:<%=c.make%> <%=c.model%> <%=c.year%></p>
+        <p>Customer Contact: <br>
+            Name: <%=c.customer.firstName%> <br>
+            Phone:<%=c.customer.phone%> <br>
+             Email:<%=c.customer.email%></p>
         <p><%=app.ownerComment%></p>
-        <form method="GET" action="admin/<%=c.id%>/<%=app.id%>/edit">
+        <form method="GET" action="admin/<%=c.id%>/edit/<%=app.id%>">
         <button>View/edit Appointment</button>
+    </form>
+    <form method="POST" action="admin/<%=c.id%>/edit/<%=app.id%>/delete?_method=DELETE">
+        <button>Delete Appointment</button>
     </form>
 </li>
 <%})})%>
 </ul>
+</div>
 <%- include('../partials/footer') %>

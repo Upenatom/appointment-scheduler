@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 <h1>Appointment for <%=car.make%> <%= car.model %> <%= car.year %>  </h1>
-<form method="POST" action="/admin?_method=PUT">
+<form method="POST" action="/admin/<%=car.id%>/edit/<%=appointment.id%>/update?_method=PUT">
     <p>Date:</p>
     <input class="makelarge" type="date" name="date" value="<%=appointment.date%>" min="" required >
     <p>Select a Time</p>

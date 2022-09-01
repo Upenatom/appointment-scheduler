@@ -27,16 +27,15 @@
         <h2> Welcome <%= customer.firstName%> </h2>
 
        <div><p>Click a Vehicle Name to view/book appointments</p></div>
+<div class="content">
         <ul type="none">
         <% car.forEach(function(c){%>
-
-
         <li>
-            <form method="POST" action="/cars/<%=c.id%>?_method=DELETE"><button type="submit" ><i class="material-icons">delete_forever</i></button></form>
+            <form method="POST" action="/cars/<%=c.id%>?_method=DELETE"><button type="submit" ><i class="material-icons trash">delete_forever</i></button></form>
 
             <a href="/cars/<%=c.id%>"><%= c.make %> <%= c.model %> <%=c.year %></a>
             
-            <form action="/cars/<%=c.id%>/edit" method="GET"><button type="submit" ><i class="material-icons">build</i></button></form>
+            <form action="/cars/<%=c.id%>/edit" method="GET"><button type="submit" ><i class="material-icons add">build</i></button></form>
            
         </li> 
         <%})%>
@@ -46,5 +45,5 @@
             Add a new Vehicle</button>
         </form>
         <% } %>
-        
+    </div>
 <%- include('../partials/footer') %>

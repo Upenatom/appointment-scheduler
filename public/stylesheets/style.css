@@ -34,7 +34,7 @@ nav{
   display:flex;
   flex-direction:row;
   background-color: #0C374d;
-  border-bottom:1px solid black;
+  border-bottom:4px solid rgb(33, 137, 137);
   width:100vw;
   height:30px;
   padding:5px;
