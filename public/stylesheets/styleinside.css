@@ -11,6 +11,7 @@ body {
   background: linear-gradient(to bottom, #0C374d, #0C374D, #0D3D56, #3C6478, #107896 );
 	background-repeat:repeat;
   color: rgb(193, 195, 238);
+  
   }
 
 a {
@@ -37,15 +38,15 @@ nav{
   justify-content: space-around;
   align-items:center;
   font-size:40px;
+  position:absolute;
 }
 
 .footer{
   display:flex;
   flex-direction: column;
-  position: fixed;
   align-items:center;
-  left: 0;
-  bottom: 0px;
+  position:absolute;
+  bottom: 0;
   width: 100%;
   background-color: #107896;
   font-size: 40px;

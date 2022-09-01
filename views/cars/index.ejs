@@ -2,22 +2,22 @@
 <h1 class="maintitle">Your Vehicles</h1>
 <%if(!customer.firstName){%>
     <h2>Profile Setup</h2>
-    <p>Please fill out the form to set up your account:</p>
+    <p>Enter account information:</p>
     <form action="/cars/newcustomer?_method=PUT" method="POST" autocomplete="'off">
     <p>E-mail:</p>
     <p><%=customer.email%></p>
     <p>Fist Name:</p>
-    <input type="text" name="firstName">
+    <input class="makelarge" type="text" name="firstName">
     <p>Last Name:</p>
-    <input type="text" name="lastName">
+    <input class="makelarge" type="text" name="lastName">
     <p>Phone #:</p>
-    <input type="text" name="phone" >
+    <input class="makelarge" type="text" name="phone" >
     <p>Make:</p>
-    <input type="text" name="make">
+    <input class="makelarge" type="text" name="make">
     <p>Model:</p>
-    <input type="text" name="model">
+    <input class="makelarge" type="text" name="model">
     <p>Year:</p>
-    <input type="text" name="year">
+    <input class="makelarge" type="text" name="year">
     <button type="submit">Submit</button>
    </form>
     <% } else{%> 

@@ -1,12 +1,12 @@
 <%- include('../partials/header') %>
 <h1>Edit Vehicle Details</h1>
 <form method="POST" action="/cars/<%=car.id%>?_method=PUT"  autocomplete="off">
-    <p>Make:</p>
-    <input type="text" name="make" value="<%=car.make%>">
-    <p>Model:</p>
-    <input type="text" name="model" value="<%=car.model%>">
-    <p>Year:</p>
-    <input type="text" name="year" value="<%=car.year%>">
+    <p class="apptlist">Make:</p>
+    <input class="makelarge" type="text" name="make" value="<%=car.make%>">
+    <p class="apptlist">Model:</p>
+    <input class="makelarge" type="text" name="model" value="<%=car.model%>">
+    <p class="apptlist">Year:</p>
+    <input class="makelarge" type="text" name="year" value="<%=car.year%>"> <br>
     <button type="submit">Update</button>
 </form>
 <%- include('../partials/footer') %>
