@@ -49,4 +49,18 @@ function update(req, res) {
     }
   });
 }
-function deleteAppt(req, res) {}
+function deleteAppt(req, res) {
+  Customer.findById(req.user.id, function (err, admin) {
+    if (admin.isAdmin) {
+      Car.findById(req.params.carId, function (err, car) {
+        const appointment = car.appointment.id(req.params.appointmentId);
+        appointment.remove();
+        car.save(function (err) {
+          res.redirect("/admin");
+        });
+      });
+    } else {
+      res.redirect("../");
+    }
+  });
+}
