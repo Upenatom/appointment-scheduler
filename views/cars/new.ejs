@@ -2,11 +2,11 @@
 <h1>Add New Vehicle</h1>
 <form action="/cars" method="POST" autocomplete="off">
     <p class="apptlist">Make:</p>
-    <input placeholder='eg. Honda' class="makelarge" type="text" name="make">
+    <input placeholder='eg. Honda' class="makelarge" type="text" name="make" required>
     <p class="apptlist">Model:</p>
-    <input placeholder='eg. Civic' class="makelarge" type="text" name="model">
+    <input placeholder='eg. Civic' class="makelarge" type="text" name="model" required>
     <p class="apptlist">Year:</p>
-    <input placeholder='eg. 2005' class="makelarge" type="text" name="year"> <br>
+    <input placeholder='eg. 2005' class="makelarge" type="text" name="year" required> <br>
     <button type="submit">Add</button>
 </form>
 <%- include('../partials/footer') %>
