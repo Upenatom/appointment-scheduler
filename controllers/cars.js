@@ -19,8 +19,8 @@ function deleteCar(req, res) {
 
 function update(req, res) {
   Car.findById(req.params.carId, function (err, car) {
-    car.model = req.body.model;
     car.make = req.body.make;
+    car.model = req.body.model;
     car.year = req.body.year;
     car.save(function (err) {
       res.redirect("/cars");
